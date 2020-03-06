@@ -4,7 +4,10 @@
       <w>busmaster</w>
       <w>ccode</w>
       <w>cinfo</w>
+      <w>msec</w>
+      <w>settimer</w>
       <w>stcan</w>
+      <w>strlen</w>
     </words>
   </dictionary>
 </component>
