@@ -291,6 +291,10 @@ void OnMsgID_07e8(STCAN_MSG RxMsg) {
 
             /*2E反馈*/
         case 0x6E:
+            Options = (RxMsg.data[2] << 8) | RxMsg.data[3];
+//              Trace("Options:%X",Options);
+            return;
+
             /*31反馈*/
         case 0x71:
             Options = (RxMsg.data[2] << 16) | (RxMsg.data[3] << 8) | RxMsg.data[4];
@@ -340,7 +344,7 @@ void OnMsgID_07e8(STCAN_MSG RxMsg) {
 
 //on prestart
 //{
-//  rstmsg_ems.can = 1;
+//  rstMsg_ems.can = 1;
 //}
 
 
@@ -1112,7 +1116,7 @@ void Utils_getDTC() {
 
 /* Start BUSMASTER generated function - Utils_getInformation */
 void Utils_getInformation() {
-    unsigned char str[100], hexnumber[100];
+    unsigned char str[100], hexnumber[200];
     memset(str, 0, sizeof(str));
     memset(hexnumber, 0, sizeof(hexnumber));
 //    Trace("mSID=%X,Options=%X,rInformation_type=%X,rInformation_Options=%X",mSID,Options,rInformation_type,rInformation_Options);
@@ -1162,12 +1166,14 @@ void Utils_getInformation() {
         for (int i = 0; i < byteCount - 3; ++i) {//减去0904等及标志位3字节
             str[i] = rInformation[i + 3];
         }
+        Utils_ascii2hex(str, hexnumber);//转为Hex显示的ascii
         switch (rInformation_Options) {
             case 0x04:
                 Trace("0904 CALID: %s", str);
                 return;
             case 0x06:
-                Trace("0906 CVN: %02X%02X%02X%02X", str[0], str[1], str[2], str[3]);
+//                Trace("0906 CVN: %02X%02X%02X%02X", str[0], str[1], str[2], str[3]);
+                Trace("0906 CVN: %s", hexnumber);
                 return;
             case 0x02:
                 Trace("0902 VIN: %s", str);
@@ -1535,7 +1541,7 @@ void Utils_doWriteVIN() {
             Trace(">> STEP7：2EF190第三帧");
             return;
         case 8:
-            Utils_setTimerWaiting(waiting, 2000, 0x6e, 0xf19055, 5);
+            Utils_setTimerWaiting(waiting, 2000, 0x6e, 0xf190, 5);
             Trace(">> STEP8：等待ECU反馈");
             return;
         case 9:
@@ -1890,7 +1896,7 @@ void Utils_PreStart() {
 }
 /* End BUSMASTER generated function - Utils_PreStart */
 
-/* Start BUSMASTER generated function - Utils_PreStart */
+/* Start BUSMASTER generated function - Utils_ascii2hex */
 void Utils_ascii2hex(const unsigned char chr[], unsigned char hexnumber[]) {
     static long a, b;
     for (int i = 0; i < byteCount - 3; ++i) {
@@ -1910,7 +1916,7 @@ void Utils_ascii2hex(const unsigned char chr[], unsigned char hexnumber[]) {
         hexnumber[2 * i + 1] = b;
     }
 }
-/* End BUSMASTER generated function - Utils_PreStart */
+/* End BUSMASTER generated function - Utils_ascii2hex */
 
 
 
