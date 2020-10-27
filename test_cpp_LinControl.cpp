@@ -867,194 +867,570 @@ void Utils_getVehicleInfo(unsigned short VehicleStatus, char strInfo[]) {
 /* Start BUSMASTER generated function - Utils_getDTCInfo */
 void Utils_getDTCInfo(long DTCInfo, char strInfo[]) {
     switch (DTCInfo) {
-        case 0x001000:strcpy(strInfo, "进气VVT阀控制线路故障(D).");break;
-        case 0x001100:strcpy(strInfo, "进气VVT位置信号不合理(C).");break;
-        case 0x001200:strcpy(strInfo, "进气VVT目标及响应故障(C).");break;
-        case 0x001300:strcpy(strInfo, "排气VVT阀控制线路故障(D).");break;
-        case 0x001400:strcpy(strInfo, "排气VVT位置信号不合理(C).");break;
-        case 0x001500:strcpy(strInfo, "排气VVT目标及响应故障(C).");break;
-        case 0x003300:strcpy(strInfo, "增压控制阀开路故障(D).");break;
-        case 0x010500:strcpy(strInfo, "进气压力传感器信号电路故障(D).");break;
-        case 0x010600:strcpy(strInfo, "进气压力传感器信号不合理(C).");break;
-        case 0x010700:strcpy(strInfo, "进气压力传感器信号电路电压过低或开路(D).");break;
-        case 0x010800:strcpy(strInfo, "进气压力传感器线路电压过高(C).");break;
-        case 0x011000:strcpy(strInfo, "进气温度传感器信号电路故障(D).");break;
-        case 0x011100:strcpy(strInfo, "进气温度传感器信号不合理(C).");break;
-        case 0x011200:strcpy(strInfo, "进气温度传感器信号电路电压过低(C).");break;
-        case 0x011300:strcpy(strInfo, "进气温度传感器信号电路电压过高或开路(D).");break;
-        case 0x011500:strcpy(strInfo, "冷却液温度传感器信号电路故障(D).");break;
-        case 0x011600:strcpy(strInfo, "冷却液温度传感器信号不合理(C).");break;
-        case 0x011700:strcpy(strInfo, "冷却液温度传感器信号电路电压过低(C).");break;
-        case 0x011800:strcpy(strInfo, "冷却液温度传感器信号电路电压过高或开路(D).");break;
-        case 0x012000:strcpy(strInfo, "节气门传感器信号电路故障(D).");break;
-        case 0x012100:strcpy(strInfo, "节气门传感器信号不合理(C).");break;
-        case 0x012200:strcpy(strInfo, "节气门传感器信号电路电压过低或开路(D).");break;
-        case 0x012300:strcpy(strInfo, "节气门传感器信号电路电压过高(C).");break;
-        case 0x012800:strcpy(strInfo, "节温器信号开路故障(C).");break;
-        case 0x013000:strcpy(strInfo, "前氧传感器信号不合理(C).");break;
-        case 0x013100:strcpy(strInfo, "前氧传感器线路电压太低或短路(C).");break;
-        case 0x013200:strcpy(strInfo, "前氧传感器线路电压太高(C).");break;
-        case 0x013300:strcpy(strInfo, "前氧传感器反应老化(C).");break;
-        case 0x013400:strcpy(strInfo, "前氧传感器线路故障(D).");break;
-        case 0x013500:strcpy(strInfo, "前氧传感器的加热线路故障(D).");break;
-        case 0x013600:strcpy(strInfo, "后氧传感器信号不合理(C).");break;
-        case 0x013700:strcpy(strInfo, "后氧传感器线路电压太低或短路(C).");break;
-        case 0x013800:strcpy(strInfo, "后氧传感器线路电压太高(C).");break;
-        case 0x013900:strcpy(strInfo, "后氧传感器反应老化(C).");break;
-        case 0x014000:strcpy(strInfo, "后氧传感器线路故障(D).");break;
-        case 0x014100:strcpy(strInfo, "后氧传感器加热线路故障(D).");break;
-        case 0x015100:strcpy(strInfo, "后氧传感器电压低(兼容).");break;
-        case 0x015200:strcpy(strInfo, "后氧传感器电压高(兼容).");break;
-        case 0x015400:strcpy(strInfo, "后氧传感器线路故障(兼容).");break;
-        case 0x015500:strcpy(strInfo, "后氧传感器加热线路故障(兼容).");break;
-        case 0x017000:strcpy(strInfo, "燃油系统修正值不合理(C).");break;
-        case 0x017100:strcpy(strInfo, "燃油系统过稀故障(C).");break;
-        case 0x017200:strcpy(strInfo, "燃油系统过浓故障(C).");break;
-        case 0x020100:strcpy(strInfo, "一缸喷油器控制电路故障(D).");break;
-        case 0x020200:strcpy(strInfo, "二缸喷油器控制电路故障(D).");break;
-        case 0x020300:strcpy(strInfo, "三缸喷油器控制电路故障(D).");break;
-        case 0x020400:strcpy(strInfo, "四缸喷油器控制电路故障(D).");break;
-        case 0x023000:strcpy(strInfo, "油泵继电器控制电路故障(F).");break;
-        case 0x023500:strcpy(strInfo, "增压压力传感器线路故障(D).");break;
-        case 0x023600:strcpy(strInfo, "增压压力传感器信号不合理(C).");break;
-        case 0x023700:strcpy(strInfo, "增压压力传感器信号电路电压过低或开路(D).");break;
-        case 0x023800:strcpy(strInfo, "增压压力传感器信号电路电压过高(C).");break;
-        case 0x023900:strcpy(strInfo, "增压温度传感器线路故障(D).");break;
-        case 0x024000:strcpy(strInfo, "增压温度传感器信号不合理(C).");break;
-        case 0x024100:strcpy(strInfo, "增压温度传感器信号电压过低(C).");break;
-        case 0x024200:strcpy(strInfo, "增压温度传感器信号电压过高或开路(D).");break;
-        case 0x024300:strcpy(strInfo, "泄压控制阀开路故障(D).");break;
-        case 0x030000:strcpy(strInfo, "发动机多缸失火(B).");break;
-        case 0x030100:strcpy(strInfo, "发动机1缸失火(B).");break;
-        case 0x030200:strcpy(strInfo, "发动机2缸失火(B).");break;
-        case 0x030300:strcpy(strInfo, "发动机3缸失火(B).");break;
-        case 0x030400:strcpy(strInfo, "发动机4缸失火(B).");break;
-        case 0x032500:strcpy(strInfo, "爆震传感器信号电路故障(D).");break;
-        case 0x033500:strcpy(strInfo, "曲轴58X传感器信号电路故障(D).");break;
-        case 0x033600:strcpy(strInfo, "曲轴58X传感器信号不合理(C).");break;
-        case 0x034000:strcpy(strInfo, "进气凸轮轴传感器信号电路故障(D).");break;
-        case 0x034100:strcpy(strInfo, "进气凸轮轴传感器信号不合理(C).");break;
-        case 0x034500:strcpy(strInfo, "排气凸轮轴传感器信号电路故障(D).");break;
-        case 0x034600:strcpy(strInfo, "排气凸轮轴传感器信不合理(C).");break;
-        case 0x035100:strcpy(strInfo, "点火线圈A组控制电路故障(D).");break;
-        case 0x035200:strcpy(strInfo, "点火线圈B组控制电路故障(D).");break;
-        case 0x035300:strcpy(strInfo, "点火线圈C组控制电路故障(D).");break;
-        case 0x035400:strcpy(strInfo, "点火线圈D组控制电路故障(D).");break;
-        case 0x040100:strcpy(strInfo, "EGR清洗功能故障(C).");break;
-        case 0x040300:strcpy(strInfo, "EGR控制输出电路故障(D).");break;
-        case 0x040500:strcpy(strInfo, "EGR信号电路电压过低或开路(D).");break;
-        case 0x040600:strcpy(strInfo, "EGR信号电路电压过高(C).");break;
-        case 0x042000:strcpy(strInfo, "三元催化器储氧能力老化（排放超限）(C).");break;
-        case 0x042700:strcpy(strInfo, "GPF入口温度传感器信号电路电压过低(C).");break;
-        case 0x042800:strcpy(strInfo, "GPF入口温度传感器信号电路电压过高(D).");break;
-        case 0x044100:strcpy(strInfo, "脱附流量故障(C).");break;
-        case 0x044200:strcpy(strInfo, "油箱泄露故障（少量泄漏）(C).");break;
-        case 0x044300:strcpy(strInfo, "碳罐电磁阀控制电路故障(D).");break;
-        case 0x044600:strcpy(strInfo, "碳罐截止阀控制电路故障(D).");break;
-        case 0x044900:strcpy(strInfo, "炭罐冲洗阀输出电路故障(D).");break;
-        case 0x045000:strcpy(strInfo, "油箱压力传感器信号故障(D).");break;
-        case 0x045100:strcpy(strInfo, "油箱压力传感器信号不合理(C).");break;
-        case 0x045200:strcpy(strInfo, "油箱压力传感器信号电路电压过低或开路(D).");break;
-        case 0x045300:strcpy(strInfo, "油箱压力传感器信号电路电压过高(C).");break;
-        case 0x045500:strcpy(strInfo, "油箱泄露故障（油箱盖）(C).");break;
-        case 0x046200:strcpy(strInfo, "油量传感器信号电压低(E).");break;
-        case 0x046300:strcpy(strInfo, "油量传感器信号电压高或开路(E).");break;
-        case 0x047000:strcpy(strInfo, "GPF压力传感器开路故障(D).");break;
-        case 0x047200:strcpy(strInfo, "GPF压力传感器信号电路电压过低(D).");break;
-        case 0x047300:strcpy(strInfo, "GPF压力传感器信号电路电压过高(C).");break;
-        case 0x047400:strcpy(strInfo, "GPF压力传感器压力不稳定(C).");break;
-        case 0x048000:strcpy(strInfo, "低速冷却风扇控制线路故障(F).");break;
-        case 0x048100:strcpy(strInfo, "高速冷却风扇控制线路故障(F).");break;
-        case 0x049600:strcpy(strInfo, "CPV阀卡死在开位置(C).");break;
-        case 0x049700:strcpy(strInfo, "CPV阀卡死在关位置(C).");break;
-        case 0x050000:strcpy(strInfo, "车速传感器信号电路故障(F).");break;
-        case 0x050200:strcpy(strInfo, "转速输出信号电路故障(F).");break;
-        case 0x050400:strcpy(strInfo, "制动开关相关性故障(F).");break;
-        case 0x050500:strcpy(strInfo, "怠速控制系统线路故障(D).");break;
-        case 0x050600:strcpy(strInfo, "怠速控制转速低于目标怠速(C).");break;
-        case 0x050700:strcpy(strInfo, "怠速控制转速高于目标怠速(C).");break;
-        case 0x050B00:strcpy(strInfo, "点火效率故障(C).");break;
-        case 0x050D00:strcpy(strInfo, "低怠速故障(C).");break;
-        case 0x051A00:strcpy(strInfo, "曲轴箱压力传感器电路故障(D).");break;
-        case 0x051B00:strcpy(strInfo, "曲轴箱压力传感器电路不合理(C).");break;
-        case 0x051C00:strcpy(strInfo, "曲轴箱压力传感器电路低(D).");break;
-        case 0x051D00:strcpy(strInfo, "曲轴箱压力传感器电路高(C).");break;
-        case 0x051E00:strcpy(strInfo, "曲轴箱压力传感器电路间歇(C).");break;
-        case 0x051F00:strcpy(strInfo, "曲轴箱通风管脱落故障(C).");break;
-        case 0x053500:strcpy(strInfo, "空调温度传感器信号电路故障(F).");break;
-        case 0x053700:strcpy(strInfo, "空调温度传感器信号电路电压过低(F).");break;
-        case 0x053800:strcpy(strInfo, "空调温度传感器信号电路电压过高(F).");break;
-        case 0x056100:strcpy(strInfo, "系统电压不合理(F).");break;
-        case 0x056200:strcpy(strInfo, "系统蓄电池电压过低(F).");break;
-        case 0x056300:strcpy(strInfo, "系统蓄电池电压过高(F).");break;
-        case 0x057500:strcpy(strInfo, "定速巡航开关线路故障(F).");break;
-        case 0x057600:strcpy(strInfo, "定速巡航开关线路电压低(F).");break;
-        case 0x057700:strcpy(strInfo, "定速巡航开关线路电压高(F).");break;
-        case 0x057800:strcpy(strInfo, "定速巡航开关线路失效(F).");break;
-        case 0x061500:strcpy(strInfo, "起动继电器控制线路故障(F).");break;
-        case 0x064500:strcpy(strInfo, "空调继电器控制线路故障(F).");break;
-        case 0x065000:strcpy(strInfo, "故障指示灯（MIL）线路失效(F).");break;
-        case 0x065600:strcpy(strInfo, "油位输出信号线路故障(F).");break;
-        case 0x080700:strcpy(strInfo, "离合器开关线路低电压(F).");break;
-        case 0x080800:strcpy(strInfo, "离合器开关线路高电压(F).");break;
-        case 0x080900:strcpy(strInfo, "空档开关失效(F).");break;
-        case 0x100000:strcpy(strInfo, "GPF堵塞(兼容).");break;
-        case 0x100100:strcpy(strInfo, "GPF移除或损坏(兼容).");break;
-        case 0x100200:strcpy(strInfo, "基于压差的Ash过载(C).");break;
-        case 0x100300:strcpy(strInfo, "基于模型的Ash过载(C).");break;
-        case 0x100500:strcpy(strInfo, "基于压差的soot过载(C).");break;
-        case 0x100600:strcpy(strInfo, "基于模型的soot过载(C).");break;
-        case 0x100700:strcpy(strInfo, "soot过载(C).");break;
-        case 0x100800:strcpy(strInfo, "催化器损坏失火(A).");break;
-        case 0x100900:strcpy(strInfo, "点火效率故障(兼容).");break;
-        case 0x100A00:strcpy(strInfo, "低怠速故障(兼容).");break;
-        case 0x100B00:strcpy(strInfo, "PDA控制电路故障(D).");break;
-        case 0x100C00:strcpy(strInfo, "SVS指示灯输出信号电路故障(E).");break;
-        case 0x100D00:strcpy(strInfo, "真空泵输出继电器故障(F).");break;
-        case 0x101400:strcpy(strInfo, "大气压力传感器电路故障(F).");break;
-        case 0x101500:strcpy(strInfo, "大气压力传感器信号不合理(F).");break;
-        case 0x101600:strcpy(strInfo, "大气压力传感器信号电路电压过低(F).");break;
-        case 0x101700:strcpy(strInfo, "大气压力传感器信号电路电压过高(F).");break;
-        case 0x101800:strcpy(strInfo, "水温信号输出电路故障(F).");break;
-        case 0x101900:strcpy(strInfo, "电子水泵输出继电器故障(F).");break;
-        case 0x110100:strcpy(strInfo, "ABS通讯丢失(F).");break;
-        case 0x110200:strcpy(strInfo, "ESC通讯丢失(F).");break;
-        case 0x110300:strcpy(strInfo, "BCM通讯丢失(F).");break;
-        case 0x110400:strcpy(strInfo, "IPC通讯丢失(F).");break;
-        case 0x113000:strcpy(strInfo, "外发报文中车速信号异常(F).");break;
-        case 0x113100:strcpy(strInfo, "外发报文中发动机转速信号异常(F).");break;
-        case 0x152300:strcpy(strInfo, "安全气囊信号异常(F).");break;
-        case 0x161100:strcpy(strInfo, "PIN码输入错误(F).");break;
-        case 0x161200:strcpy(strInfo, "PEPS无响应(F).");break;
-        case 0x161300:strcpy(strInfo, "PEPS钥匙认证失败(F).");break;
-        case 0x200200:strcpy(strInfo, "GPF堵塞(C).");break;
-        case 0x210000:strcpy(strInfo, "电子节气门线路故障(D).");break;
-        case 0x210800:strcpy(strInfo, "电子节气门响应慢(C).");break;
-        case 0x210900:strcpy(strInfo, "电子节气门最小位置自学习故障(C).");break;
-        case 0x211000:strcpy(strInfo, "电子节气门最大位置自学习故障(C).");break;
-        case 0x212000:strcpy(strInfo, "踏板位置传感器线路故障(D).");break;
-        case 0x212100:strcpy(strInfo, "踏板位置传感器信号电路不合理(F).");break;
-        case 0x212200:strcpy(strInfo, "踏板位置传感器信号电路电压过低(F).");break;
-        case 0x212300:strcpy(strInfo, "踏板位置传感器信号电路电压过高(F).");break;
-        case 0x217600:strcpy(strInfo, "电子节气门复位故障(F).");break;
-        case 0x218400:strcpy(strInfo, "冷却风扇端冷液温度传感器电压信号过低(C).");break;
-        case 0x218500:strcpy(strInfo, "冷却风扇端冷液温度传感器电压信号过高或开路(D).");break;
-        case 0x218700:strcpy(strInfo, "怠速工况燃油系统过稀(C).");break;
-        case 0x218800:strcpy(strInfo, "怠速工况燃油系统过浓(C).");break;
-        case 0x226D00:strcpy(strInfo, "GPF移除或损坏(C).");break;
-        case 0x242100:strcpy(strInfo, "CCV阀卡死在开位置(C).");break;
-        case 0x242200:strcpy(strInfo, "CCV阀卡死在关位置(C).");break;
-        case 0x242F00:strcpy(strInfo, "Ash过载(C).");break;
-        case 0x245200:strcpy(strInfo, "GPF相对压力传感器开路故障(D).");break;
-        case 0x245300:strcpy(strInfo, "GPF压力传感器上游管路脱落故障(C).");break;
-        case 0x245400:strcpy(strInfo, "GPF相对压力传感器电压低(D).");break;
-        case 0x245500:strcpy(strInfo, "GPF相对压力传感器电压高(C).");break;
-        case 0x245600:strcpy(strInfo, "GPF相对压力传感器压力不稳定(C).");break;
-        case 0x245F00:strcpy(strInfo, "GPF压力传感器下游管路脱落故障(C).");break;
-        case 0x252500:strcpy(strInfo, "真空泵压力传感器信号电路故障(F).");break;
-        case 0x252600:strcpy(strInfo, "真空泵压力传感器信号不合理(F).");break;
-        case 0x252700:strcpy(strInfo, "真空泵压力传感器信号电路电压过低(F).");break;
-        case 0x252800:strcpy(strInfo, "真空泵压力传感器信号电路电压过高(F).");break;
+        case 0x001000:
+            strcpy(strInfo, "进气VVT阀控制线路故障(D).");
+            break;
+        case 0x001100:
+            strcpy(strInfo, "进气VVT位置信号不合理(C).");
+            break;
+        case 0x001200:
+            strcpy(strInfo, "进气VVT目标及响应故障(C).");
+            break;
+        case 0x001300:
+            strcpy(strInfo, "排气VVT阀控制线路故障(D).");
+            break;
+        case 0x001400:
+            strcpy(strInfo, "排气VVT位置信号不合理(C).");
+            break;
+        case 0x001500:
+            strcpy(strInfo, "排气VVT目标及响应故障(C).");
+            break;
+        case 0x003300:
+            strcpy(strInfo, "增压控制阀开路故障(D).");
+            break;
+        case 0x010500:
+            strcpy(strInfo, "进气压力传感器信号电路故障(D).");
+            break;
+        case 0x010600:
+            strcpy(strInfo, "进气压力传感器信号不合理(C).");
+            break;
+        case 0x010700:
+            strcpy(strInfo, "进气压力传感器信号电路电压过低或开路(D).");
+            break;
+        case 0x010800:
+            strcpy(strInfo, "进气压力传感器线路电压过高(C).");
+            break;
+        case 0x011000:
+            strcpy(strInfo, "进气温度传感器信号电路故障(D).");
+            break;
+        case 0x011100:
+            strcpy(strInfo, "进气温度传感器信号不合理(C).");
+            break;
+        case 0x011200:
+            strcpy(strInfo, "进气温度传感器信号电路电压过低(C).");
+            break;
+        case 0x011300:
+            strcpy(strInfo, "进气温度传感器信号电路电压过高或开路(D).");
+            break;
+        case 0x011500:
+            strcpy(strInfo, "冷却液温度传感器信号电路故障(D).");
+            break;
+        case 0x011600:
+            strcpy(strInfo, "冷却液温度传感器信号不合理(C).");
+            break;
+        case 0x011700:
+            strcpy(strInfo, "冷却液温度传感器信号电路电压过低(C).");
+            break;
+        case 0x011800:
+            strcpy(strInfo, "冷却液温度传感器信号电路电压过高或开路(D).");
+            break;
+        case 0x012000:
+            strcpy(strInfo, "节气门传感器信号电路故障(D).");
+            break;
+        case 0x012100:
+            strcpy(strInfo, "节气门传感器信号不合理(C).");
+            break;
+        case 0x012200:
+            strcpy(strInfo, "节气门传感器信号电路电压过低或开路(D).");
+            break;
+        case 0x012300:
+            strcpy(strInfo, "节气门传感器信号电路电压过高(C).");
+            break;
+        case 0x012800:
+            strcpy(strInfo, "节温器信号开路故障(C).");
+            break;
+        case 0x013000:
+            strcpy(strInfo, "前氧传感器信号不合理(C).");
+            break;
+        case 0x013100:
+            strcpy(strInfo, "前氧传感器线路电压太低或短路(C).");
+            break;
+        case 0x013200:
+            strcpy(strInfo, "前氧传感器线路电压太高(C).");
+            break;
+        case 0x013300:
+            strcpy(strInfo, "前氧传感器反应老化(C).");
+            break;
+        case 0x013400:
+            strcpy(strInfo, "前氧传感器线路故障(D).");
+            break;
+        case 0x013500:
+            strcpy(strInfo, "前氧传感器的加热线路故障(D).");
+            break;
+        case 0x013600:
+            strcpy(strInfo, "后氧传感器信号不合理(C).");
+            break;
+        case 0x013700:
+            strcpy(strInfo, "后氧传感器线路电压太低或短路(C).");
+            break;
+        case 0x013800:
+            strcpy(strInfo, "后氧传感器线路电压太高(C).");
+            break;
+        case 0x013900:
+            strcpy(strInfo, "后氧传感器反应老化(C).");
+            break;
+        case 0x014000:
+            strcpy(strInfo, "后氧传感器线路故障(D).");
+            break;
+        case 0x014100:
+            strcpy(strInfo, "后氧传感器加热线路故障(D).");
+            break;
+        case 0x015100:
+            strcpy(strInfo, "后氧传感器电压低(兼容).");
+            break;
+        case 0x015200:
+            strcpy(strInfo, "后氧传感器电压高(兼容).");
+            break;
+        case 0x015400:
+            strcpy(strInfo, "后氧传感器线路故障(兼容).");
+            break;
+        case 0x015500:
+            strcpy(strInfo, "后氧传感器加热线路故障(兼容).");
+            break;
+        case 0x017000:
+            strcpy(strInfo, "燃油系统修正值不合理(C).");
+            break;
+        case 0x017100:
+            strcpy(strInfo, "燃油系统过稀故障(C).");
+            break;
+        case 0x017200:
+            strcpy(strInfo, "燃油系统过浓故障(C).");
+            break;
+        case 0x020100:
+            strcpy(strInfo, "一缸喷油器控制电路故障(D).");
+            break;
+        case 0x020200:
+            strcpy(strInfo, "二缸喷油器控制电路故障(D).");
+            break;
+        case 0x020300:
+            strcpy(strInfo, "三缸喷油器控制电路故障(D).");
+            break;
+        case 0x020400:
+            strcpy(strInfo, "四缸喷油器控制电路故障(D).");
+            break;
+        case 0x023000:
+            strcpy(strInfo, "油泵继电器控制电路故障(F).");
+            break;
+        case 0x023500:
+            strcpy(strInfo, "增压压力传感器线路故障(D).");
+            break;
+        case 0x023600:
+            strcpy(strInfo, "增压压力传感器信号不合理(C).");
+            break;
+        case 0x023700:
+            strcpy(strInfo, "增压压力传感器信号电路电压过低或开路(D).");
+            break;
+        case 0x023800:
+            strcpy(strInfo, "增压压力传感器信号电路电压过高(C).");
+            break;
+        case 0x023900:
+            strcpy(strInfo, "增压温度传感器线路故障(D).");
+            break;
+        case 0x024000:
+            strcpy(strInfo, "增压温度传感器信号不合理(C).");
+            break;
+        case 0x024100:
+            strcpy(strInfo, "增压温度传感器信号电压过低(C).");
+            break;
+        case 0x024200:
+            strcpy(strInfo, "增压温度传感器信号电压过高或开路(D).");
+            break;
+        case 0x024300:
+            strcpy(strInfo, "泄压控制阀开路故障(D).");
+            break;
+        case 0x030000:
+            strcpy(strInfo, "发动机多缸失火(B).");
+            break;
+        case 0x030100:
+            strcpy(strInfo, "发动机1缸失火(B).");
+            break;
+        case 0x030200:
+            strcpy(strInfo, "发动机2缸失火(B).");
+            break;
+        case 0x030300:
+            strcpy(strInfo, "发动机3缸失火(B).");
+            break;
+        case 0x030400:
+            strcpy(strInfo, "发动机4缸失火(B).");
+            break;
+        case 0x032500:
+            strcpy(strInfo, "爆震传感器信号电路故障(D).");
+            break;
+        case 0x033500:
+            strcpy(strInfo, "曲轴58X传感器信号电路故障(D).");
+            break;
+        case 0x033600:
+            strcpy(strInfo, "曲轴58X传感器信号不合理(C).");
+            break;
+        case 0x034000:
+            strcpy(strInfo, "进气凸轮轴传感器信号电路故障(D).");
+            break;
+        case 0x034100:
+            strcpy(strInfo, "进气凸轮轴传感器信号不合理(C).");
+            break;
+        case 0x034500:
+            strcpy(strInfo, "排气凸轮轴传感器信号电路故障(D).");
+            break;
+        case 0x034600:
+            strcpy(strInfo, "排气凸轮轴传感器信不合理(C).");
+            break;
+        case 0x035100:
+            strcpy(strInfo, "点火线圈A组控制电路故障(D).");
+            break;
+        case 0x035200:
+            strcpy(strInfo, "点火线圈B组控制电路故障(D).");
+            break;
+        case 0x035300:
+            strcpy(strInfo, "点火线圈C组控制电路故障(D).");
+            break;
+        case 0x035400:
+            strcpy(strInfo, "点火线圈D组控制电路故障(D).");
+            break;
+        case 0x040100:
+            strcpy(strInfo, "EGR清洗功能故障(C).");
+            break;
+        case 0x040300:
+            strcpy(strInfo, "EGR控制输出电路故障(D).");
+            break;
+        case 0x040500:
+            strcpy(strInfo, "EGR信号电路电压过低或开路(D).");
+            break;
+        case 0x040600:
+            strcpy(strInfo, "EGR信号电路电压过高(C).");
+            break;
+        case 0x042000:
+            strcpy(strInfo, "三元催化器储氧能力老化（排放超限）(C).");
+            break;
+        case 0x042700:
+            strcpy(strInfo, "GPF入口温度传感器信号电路电压过低(C).");
+            break;
+        case 0x042800:
+            strcpy(strInfo, "GPF入口温度传感器信号电路电压过高(D).");
+            break;
+        case 0x044100:
+            strcpy(strInfo, "脱附流量故障(C).");
+            break;
+        case 0x044200:
+            strcpy(strInfo, "油箱泄露故障（少量泄漏）(C).");
+            break;
+        case 0x044300:
+            strcpy(strInfo, "碳罐电磁阀控制电路故障(D).");
+            break;
+        case 0x044600:
+            strcpy(strInfo, "碳罐截止阀控制电路故障(D).");
+            break;
+        case 0x044900:
+            strcpy(strInfo, "炭罐冲洗阀输出电路故障(D).");
+            break;
+        case 0x045000:
+            strcpy(strInfo, "油箱压力传感器信号故障(D).");
+            break;
+        case 0x045100:
+            strcpy(strInfo, "油箱压力传感器信号不合理(C).");
+            break;
+        case 0x045200:
+            strcpy(strInfo, "油箱压力传感器信号电路电压过低或开路(D).");
+            break;
+        case 0x045300:
+            strcpy(strInfo, "油箱压力传感器信号电路电压过高(C).");
+            break;
+        case 0x045500:
+            strcpy(strInfo, "油箱泄露故障（油箱盖）(C).");
+            break;
+        case 0x046200:
+            strcpy(strInfo, "油量传感器信号电压低(E).");
+            break;
+        case 0x046300:
+            strcpy(strInfo, "油量传感器信号电压高或开路(E).");
+            break;
+        case 0x047000:
+            strcpy(strInfo, "GPF压力传感器开路故障(D).");
+            break;
+        case 0x047200:
+            strcpy(strInfo, "GPF压力传感器信号电路电压过低(D).");
+            break;
+        case 0x047300:
+            strcpy(strInfo, "GPF压力传感器信号电路电压过高(C).");
+            break;
+        case 0x047400:
+            strcpy(strInfo, "GPF压力传感器压力不稳定(C).");
+            break;
+        case 0x048000:
+            strcpy(strInfo, "低速冷却风扇控制线路故障(F).");
+            break;
+        case 0x048100:
+            strcpy(strInfo, "高速冷却风扇控制线路故障(F).");
+            break;
+        case 0x049600:
+            strcpy(strInfo, "CPV阀卡死在开位置(C).");
+            break;
+        case 0x049700:
+            strcpy(strInfo, "CPV阀卡死在关位置(C).");
+            break;
+        case 0x050000:
+            strcpy(strInfo, "车速传感器信号电路故障(F).");
+            break;
+        case 0x050200:
+            strcpy(strInfo, "转速输出信号电路故障(F).");
+            break;
+        case 0x050400:
+            strcpy(strInfo, "制动开关相关性故障(F).");
+            break;
+        case 0x050500:
+            strcpy(strInfo, "怠速控制系统线路故障(D).");
+            break;
+        case 0x050600:
+            strcpy(strInfo, "怠速控制转速低于目标怠速(C).");
+            break;
+        case 0x050700:
+            strcpy(strInfo, "怠速控制转速高于目标怠速(C).");
+            break;
+        case 0x050B00:
+            strcpy(strInfo, "点火效率故障(C).");
+            break;
+        case 0x050D00:
+            strcpy(strInfo, "低怠速故障(C).");
+            break;
+        case 0x051A00:
+            strcpy(strInfo, "曲轴箱压力传感器电路故障(D).");
+            break;
+        case 0x051B00:
+            strcpy(strInfo, "曲轴箱压力传感器电路不合理(C).");
+            break;
+        case 0x051C00:
+            strcpy(strInfo, "曲轴箱压力传感器电路低(D).");
+            break;
+        case 0x051D00:
+            strcpy(strInfo, "曲轴箱压力传感器电路高(C).");
+            break;
+        case 0x051E00:
+            strcpy(strInfo, "曲轴箱压力传感器电路间歇(C).");
+            break;
+        case 0x051F00:
+            strcpy(strInfo, "曲轴箱通风管脱落故障(C).");
+            break;
+        case 0x053500:
+            strcpy(strInfo, "空调温度传感器信号电路故障(F).");
+            break;
+        case 0x053700:
+            strcpy(strInfo, "空调温度传感器信号电路电压过低(F).");
+            break;
+        case 0x053800:
+            strcpy(strInfo, "空调温度传感器信号电路电压过高(F).");
+            break;
+        case 0x056100:
+            strcpy(strInfo, "系统电压不合理(F).");
+            break;
+        case 0x056200:
+            strcpy(strInfo, "系统蓄电池电压过低(F).");
+            break;
+        case 0x056300:
+            strcpy(strInfo, "系统蓄电池电压过高(F).");
+            break;
+        case 0x057500:
+            strcpy(strInfo, "定速巡航开关线路故障(F).");
+            break;
+        case 0x057600:
+            strcpy(strInfo, "定速巡航开关线路电压低(F).");
+            break;
+        case 0x057700:
+            strcpy(strInfo, "定速巡航开关线路电压高(F).");
+            break;
+        case 0x057800:
+            strcpy(strInfo, "定速巡航开关线路失效(F).");
+            break;
+        case 0x061500:
+            strcpy(strInfo, "起动继电器控制线路故障(F).");
+            break;
+        case 0x064500:
+            strcpy(strInfo, "空调继电器控制线路故障(F).");
+            break;
+        case 0x065000:
+            strcpy(strInfo, "故障指示灯（MIL）线路失效(F).");
+            break;
+        case 0x065600:
+            strcpy(strInfo, "油位输出信号线路故障(F).");
+            break;
+        case 0x080700:
+            strcpy(strInfo, "离合器开关线路低电压(F).");
+            break;
+        case 0x080800:
+            strcpy(strInfo, "离合器开关线路高电压(F).");
+            break;
+        case 0x080900:
+            strcpy(strInfo, "空档开关失效(F).");
+            break;
+        case 0x100000:
+            strcpy(strInfo, "GPF堵塞(兼容).");
+            break;
+        case 0x100100:
+            strcpy(strInfo, "GPF移除或损坏(兼容).");
+            break;
+        case 0x100200:
+            strcpy(strInfo, "基于压差的Ash过载(C).");
+            break;
+        case 0x100300:
+            strcpy(strInfo, "基于模型的Ash过载(C).");
+            break;
+        case 0x100500:
+            strcpy(strInfo, "基于压差的soot过载(C).");
+            break;
+        case 0x100600:
+            strcpy(strInfo, "基于模型的soot过载(C).");
+            break;
+        case 0x100700:
+            strcpy(strInfo, "soot过载(C).");
+            break;
+        case 0x100800:
+            strcpy(strInfo, "催化器损坏失火(A).");
+            break;
+        case 0x100900:
+            strcpy(strInfo, "点火效率故障(兼容).");
+            break;
+        case 0x100A00:
+            strcpy(strInfo, "低怠速故障(兼容).");
+            break;
+        case 0x100B00:
+            strcpy(strInfo, "PDA控制电路故障(D).");
+            break;
+        case 0x100C00:
+            strcpy(strInfo, "SVS指示灯输出信号电路故障(E).");
+            break;
+        case 0x100D00:
+            strcpy(strInfo, "真空泵输出继电器故障(F).");
+            break;
+        case 0x101400:
+            strcpy(strInfo, "大气压力传感器电路故障(F).");
+            break;
+        case 0x101500:
+            strcpy(strInfo, "大气压力传感器信号不合理(F).");
+            break;
+        case 0x101600:
+            strcpy(strInfo, "大气压力传感器信号电路电压过低(F).");
+            break;
+        case 0x101700:
+            strcpy(strInfo, "大气压力传感器信号电路电压过高(F).");
+            break;
+        case 0x101800:
+            strcpy(strInfo, "水温信号输出电路故障(F).");
+            break;
+        case 0x101900:
+            strcpy(strInfo, "电子水泵输出继电器故障(F).");
+            break;
+        case 0x110100:
+            strcpy(strInfo, "ABS通讯丢失(F).");
+            break;
+        case 0x110200:
+            strcpy(strInfo, "ESC通讯丢失(F).");
+            break;
+        case 0x110300:
+            strcpy(strInfo, "BCM通讯丢失(F).");
+            break;
+        case 0x110400:
+            strcpy(strInfo, "IPC通讯丢失(F).");
+            break;
+        case 0x113000:
+            strcpy(strInfo, "外发报文中车速信号异常(F).");
+            break;
+        case 0x113100:
+            strcpy(strInfo, "外发报文中发动机转速信号异常(F).");
+            break;
+        case 0x152300:
+            strcpy(strInfo, "安全气囊信号异常(F).");
+            break;
+        case 0x161100:
+            strcpy(strInfo, "PIN码输入错误(F).");
+            break;
+        case 0x161200:
+            strcpy(strInfo, "PEPS无响应(F).");
+            break;
+        case 0x161300:
+            strcpy(strInfo, "PEPS钥匙认证失败(F).");
+            break;
+        case 0x200200:
+            strcpy(strInfo, "GPF堵塞(C).");
+            break;
+        case 0x210000:
+            strcpy(strInfo, "电子节气门线路故障(D).");
+            break;
+        case 0x210800:
+            strcpy(strInfo, "电子节气门响应慢(C).");
+            break;
+        case 0x210900:
+            strcpy(strInfo, "电子节气门最小位置自学习故障(C).");
+            break;
+        case 0x211000:
+            strcpy(strInfo, "电子节气门最大位置自学习故障(C).");
+            break;
+        case 0x212000:
+            strcpy(strInfo, "踏板位置传感器线路故障(D).");
+            break;
+        case 0x212100:
+            strcpy(strInfo, "踏板位置传感器信号电路不合理(F).");
+            break;
+        case 0x212200:
+            strcpy(strInfo, "踏板位置传感器信号电路电压过低(F).");
+            break;
+        case 0x212300:
+            strcpy(strInfo, "踏板位置传感器信号电路电压过高(F).");
+            break;
+        case 0x217600:
+            strcpy(strInfo, "电子节气门复位故障(F).");
+            break;
+        case 0x218400:
+            strcpy(strInfo, "冷却风扇端冷液温度传感器电压信号过低(C).");
+            break;
+        case 0x218500:
+            strcpy(strInfo, "冷却风扇端冷液温度传感器电压信号过高或开路(D).");
+            break;
+        case 0x218700:
+            strcpy(strInfo, "怠速工况燃油系统过稀(C).");
+            break;
+        case 0x218800:
+            strcpy(strInfo, "怠速工况燃油系统过浓(C).");
+            break;
+        case 0x226D00:
+            strcpy(strInfo, "GPF移除或损坏(C).");
+            break;
+        case 0x242100:
+            strcpy(strInfo, "CCV阀卡死在开位置(C).");
+            break;
+        case 0x242200:
+            strcpy(strInfo, "CCV阀卡死在关位置(C).");
+            break;
+        case 0x242F00:
+            strcpy(strInfo, "Ash过载(C).");
+            break;
+        case 0x245200:
+            strcpy(strInfo, "GPF相对压力传感器开路故障(D).");
+            break;
+        case 0x245300:
+            strcpy(strInfo, "GPF压力传感器上游管路脱落故障(C).");
+            break;
+        case 0x245400:
+            strcpy(strInfo, "GPF相对压力传感器电压低(D).");
+            break;
+        case 0x245500:
+            strcpy(strInfo, "GPF相对压力传感器电压高(C).");
+            break;
+        case 0x245600:
+            strcpy(strInfo, "GPF相对压力传感器压力不稳定(C).");
+            break;
+        case 0x245F00:
+            strcpy(strInfo, "GPF压力传感器下游管路脱落故障(C).");
+            break;
+        case 0x252500:
+            strcpy(strInfo, "真空泵压力传感器信号电路故障(F).");
+            break;
+        case 0x252600:
+            strcpy(strInfo, "真空泵压力传感器信号不合理(F).");
+            break;
+        case 0x252700:
+            strcpy(strInfo, "真空泵压力传感器信号电路电压过低(F).");
+            break;
+        case 0x252800:
+            strcpy(strInfo, "真空泵压力传感器信号电路电压过高(F).");
+            break;
 
         default:
             strcpy(strInfo, "未定义的DTC，请查看DTC列表！");
@@ -1108,7 +1484,7 @@ void Utils_getDTC() {
         Utils_getDTCInfo(DTC_date, DTC_str);
         Trace(">> DTC %d: %06X %02X %s", i + 1, DTC_date, DTC_status, DTC_str);
         Utils_getDTCStatus(DTC_status);
-        WriteToLogFile(DTC_str);
+//        WriteToLogFile(DTC_str);
     }
 }
 //DTC文本
@@ -1119,6 +1495,8 @@ void Utils_getInformation() {
     unsigned char str[100], hexnumber[200];
     memset(str, 0, sizeof(str));
     memset(hexnumber, 0, sizeof(hexnumber));
+//    FILE *fp;
+//    fp = fopen("D:\\information.txt", "a");  //拓展输入到information文本中
 //    Trace("mSID=%X,Options=%X,rInformation_type=%X,rInformation_Options=%X",mSID,Options,rInformation_type,rInformation_Options);
     mSID = rInformation_type;//用于校验mSID
     Options = rInformation_Options;//用于校验Options
@@ -1130,36 +1508,46 @@ void Utils_getInformation() {
         switch (rInformation_Options) {
             case 0xf190:
                 Trace("22F190 VIN: %s", str);
-                return;
+//                fprintf(fp,"22F190 VIN: %s\n", str);
+                break;
             case 0xf187:
                 Trace("22F187 零件号: %s", str);
-                return;
+//                fprintf(fp,"22F187 零件号: %s\n", str);
+                break;
             case 0xf197:
                 Trace("22F197 系统名称: %s", str);
-                return;
+//                fprintf(fp,"22F197 系统名称: %s\n", str);
+                break;
             case 0xf18a:
                 Trace("22F18A 供应商代码: %s", str);
-                return;
+//                fprintf(fp,"22F18A 供应商代码: %s\n", str);
+                break;
             case 0xf193:
                 Trace("22F193 硬件号: %s", hexnumber);
-                return;
+//                fprintf(fp,"22F193 硬件号: %s\n", hexnumber);
+                break;
             case 0xf195:
                 Trace("22F195 软件号: %s", str);
-                return;
+//                fprintf(fp,"22F195 软件号: %s\n", str);
+                break;
             case 0xf199:
                 Trace("22F199 刷写时间: %s", hexnumber);
-                return;
+//                fprintf(fp,"22F199 刷写时间: %s\n", hexnumber);
+                break;
             case 0xf19B:
                 Trace("22F19B 标定更改时间: %s", hexnumber);
-                return;
+//                fprintf(fp,"22F19B 标定更改时间: %s\n", hexnumber);
+                break;
             case 0xfd5b:
-                Trace("22Fd5b 硬件版本号: %s", hexnumber);
-                return;
+                Trace("22FD5B 硬件版本号: %s", hexnumber);
+//                fprintf(fp,"22FD5B 硬件版本号: %s\n", hexnumber);
+                break;
             case 0xfd5c:
-                Trace("22Fd5c 标定数据版本号: %s", str);
-                return;
+                Trace("22FD5C 标定数据版本号: %s", str);
+//                fprintf(fp,"22FD5C 标定数据版本号: %s\n", str);
+                break;
             default:
-                return;
+                break;
         }
     }
     if (rInformation_type == 0x49) {
@@ -1170,14 +1558,17 @@ void Utils_getInformation() {
         switch (rInformation_Options) {
             case 0x04:
                 Trace("0904 CALID: %s", str);
-                return;
+//                fprintf(fp,"0904 CALID: %s\n", str);
+                break;
             case 0x06:
 //                Trace("0906 CVN: %02X%02X%02X%02X", str[0], str[1], str[2], str[3]);
                 Trace("0906 CVN: %s", hexnumber);
-                return;
+//                fprintf(fp,"0906 CVN: %s\n", hexnumber);
+                break;
             case 0x02:
                 Trace("0902 VIN: %s", str);
-                return;
+//                fprintf(fp,"0902 VIN: %s\n", str);
+                break;
             case 0x0A:
                 for (int i = 0; i < byteCount - 3; ++i) {//防止00直接结束
                     if (str[i] == 0x00) {
@@ -1185,29 +1576,61 @@ void Utils_getInformation() {
                     }
                 }
                 Trace("090A ECUNAME: %s", str);
+//                fprintf(fp,"090A ECUNAME: %s\n", str);
 //                Trace("byteCount=%d",byteCount);//有00，导致显示不完全
-                return;
+                break;
             case 0x08:
                 int IUPR[64];
+                float IUPRATE[64];
                 memset(IUPR, 0x00, sizeof(IUPR));
+                memset(IUPRATE, 0x00, sizeof(IUPRATE));
                 IUPR[0] = rInformation[2];//诊断数
                 IUPR[1] = str[0] << 8 | str[1];//通用分母
                 IUPR[2] = str[2] << 8 | str[3];//点火数
                 for (int i = 0; i < IUPR[0] - 2; ++i) {
                     IUPR[i + 3] = str[2 * i + 4] << 8 | str[2 * i + 5];
                 }
-                Trace("0908 iupt: 诊断数=%d, 通用分母=%d, 点火数=%d, 催化器1=%d/%d, 催化器2=%d/%d, 前氧传感器1=%d/%d, "
-                      "前氧传感器2=%d/%d, EGR/VVT=%d/%d, 二次空气系统=%d/%d, 蒸发泄露诊断=%d/%d, 后氧传感器1=%d/%d, "
-                      "后氧传感器2=%d/%d, 空燃比1=%d/%d, 空燃比2=%d/%d, GPF1=%d/%d, GPF2=%d/%d",
-                      IUPR[0], IUPR[1], IUPR[2], IUPR[3], IUPR[4], IUPR[5], IUPR[6], IUPR[7], IUPR[8], IUPR[9],
-                      IUPR[10], IUPR[11], IUPR[12], IUPR[13], IUPR[14], IUPR[15], IUPR[16], IUPR[17], IUPR[18],
-                      IUPR[19], IUPR[20], IUPR[21], IUPR[22], IUPR[23], IUPR[24], IUPR[25], IUPR[26], IUPR[27],
-                      IUPR[28]);
-                return;
+                for (int i = 0; i < IUPR[0] - 2; ++i) {
+                    if (IUPR[2 * i + 4] != 0)
+                        IUPRATE[i] = float(IUPR[2 * i + 3]) / float(IUPR[2 * i + 4]);
+                    else IUPRATE[i] = 0;
+                }
+//                Trace("0908 iupt: 诊断数=%d, 通用分母=%d, 点火数=%d, 催化器1=%d/%d, 催化器2=%d/%d, 前氧传感器1=%d/%d, "
+//                      "前氧传感器2=%d/%d, EGR/VVT=%d/%d, 二次空气系统=%d/%d, 蒸发泄露诊断=%d/%d, 后氧传感器1=%d/%d, "
+//                      "后氧传感器2=%d/%d, 空燃比1=%d/%d, 空燃比2=%d/%d, GPF1=%d/%d, GPF2=%d/%d",
+//                      IUPR[0], IUPR[1], IUPR[2], IUPR[3], IUPR[4], IUPR[5], IUPR[6], IUPR[7], IUPR[8], IUPR[9],
+//                      IUPR[10], IUPR[11], IUPR[12], IUPR[13], IUPR[14], IUPR[15], IUPR[16], IUPR[17], IUPR[18],
+//                      IUPR[19], IUPR[20], IUPR[21], IUPR[22], IUPR[23], IUPR[24], IUPR[25], IUPR[26], IUPR[27],
+//                      IUPR[28]);
+//                Trace("        iupr: 催化器1=%3.3f, 催化器2=%3.3f, 前氧传感器1=%3.3f, "
+//                      "前氧传感器2=%3.3f, EGR/VVT=%3.3f, 二次空气系统=%3.3f, 蒸发泄露诊断=%3.3f, 后氧传感器1=%3.3f, "
+//                      "后氧传感器2=%3.3f, 空燃比1=%3.3f, 空燃比2=%3.3f, GPF1=%3.3f, GPF2=%3.3f",
+//                      IUPRATE[0], IUPRATE[1], IUPRATE[2], IUPRATE[3], IUPRATE[4], IUPRATE[5], IUPRATE[6], IUPRATE[7],
+//                      IUPRATE[8], IUPRATE[9], IUPRATE[10], IUPRATE[11], IUPRATE[12]);
+                Trace("0908 iupt: 诊断数=%d, 通用分母=%d, 点火数=%d, 催化器1=%d/%d(%3.3f), 催化器2=%d/%d(%3.3f),"
+                      " 前氧传感器1=%d/%d(%3.3f), 前氧传感器2=%d/%d(%3.3f), EGR/VVT=%d/%d(%3.3f), 二次空气系统=%d/%d(%3.3f),"
+                      " 蒸发泄露诊断=%d/%d(%3.3f), 后氧传感器1=%d/%d(%3.3f), 后氧传感器2=%d/%d(%3.3f), 空燃比1=%d/%d(%3.3f),"
+                      " 空燃比2=%d/%d(%3.3f), GPF1=%d/%d(%3.3f), GPF2=%d/%d(%3.3f)",
+                      IUPR[0], IUPR[1], IUPR[2], IUPR[3], IUPR[4], IUPRATE[0], IUPR[5], IUPR[6], IUPRATE[1], IUPR[7],
+                      IUPR[8], IUPRATE[2], IUPR[9], IUPR[10], IUPRATE[3], IUPR[11], IUPR[12], IUPRATE[4], IUPR[13],
+                      IUPR[14], IUPRATE[5], IUPR[15], IUPR[16], IUPRATE[6], IUPR[17], IUPR[18], IUPRATE[7], IUPR[19],
+                      IUPR[20], IUPRATE[8], IUPR[21], IUPR[22], IUPRATE[9], IUPR[23], IUPR[24], IUPRATE[10], IUPR[25],
+                      IUPR[26], IUPRATE[11], IUPR[27], IUPR[28], IUPRATE[12]);
+//                fprintf(fp,"0908 iupt: 诊断数=%d, 通用分母=%d, 点火数=%d, 催化器1=%d/%d(%3.3f), 催化器2=%d/%d(%3.3f),"
+//                           " 前氧传感器1=%d/%d(%3.3f), 前氧传感器2=%d/%d(%3.3f), EGR/VVT=%d/%d(%3.3f), 二次空气系统=%d/%d(%3.3f),"
+//                           " 蒸发泄露诊断=%d/%d(%3.3f), 后氧传感器1=%d/%d(%3.3f), 后氧传感器2=%d/%d(%3.3f), 空燃比1=%d/%d(%3.3f),"
+//                           " 空燃比2=%d/%d(%3.3f), GPF1=%d/%d(%3.3f), GPF2=%d/%d(%3.3f) \n\n",
+//                        IUPR[0], IUPR[1], IUPR[2], IUPR[3], IUPR[4], IUPRATE[0], IUPR[5], IUPR[6], IUPRATE[1], IUPR[7],
+//                        IUPR[8], IUPRATE[2], IUPR[9], IUPR[10], IUPRATE[3], IUPR[11], IUPR[12], IUPRATE[4], IUPR[13],
+//                        IUPR[14], IUPRATE[5], IUPR[15], IUPR[16], IUPRATE[6], IUPR[17], IUPR[18], IUPRATE[7], IUPR[19],
+//                        IUPR[20], IUPRATE[8], IUPR[21], IUPR[22], IUPRATE[9], IUPR[23], IUPR[24], IUPRATE[10], IUPR[25],
+//                        IUPR[26], IUPRATE[11], IUPR[27], IUPR[28], IUPRATE[12]);
+                break;
             default:
-                return;
+                break;
         }
     }
+//    fclose(fp);
     byteCount = 0;
     rInformation_type = 0x00;
     rInformation_Options = 0x00;
@@ -1363,8 +1786,8 @@ short Utils_ReadVIN() {
     k = 0;
     c = 0;
     check = 0;
-//    vHandle = openfileread_CAPL("D:\\vin.Txt", 0);//固定路径
-    vHandle = openfileread_CAPL("vin.Txt", 0);
+    vHandle = openfileread_CAPL("D:\\vin.txt", 0);//固定路径
+//    vHandle = openfileread_CAPL("vin.txt", 0);
     if (vHandle != 0) {
         filegetstring_CAPL(VIN, sizeof(VIN), vHandle);
         fileclose_CAPL(vHandle);

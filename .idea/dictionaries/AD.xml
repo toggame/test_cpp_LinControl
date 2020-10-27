@@ -2,8 +2,14 @@
   <dictionary name="AD">
     <words>
       <w>busmaster</w>
+      <w>calid</w>
       <w>ccode</w>
       <w>cinfo</w>
+      <w>ecuname</w>
+      <w>fopen</w>
+      <w>fprintf</w>
+      <w>iupr</w>
+      <w>iuprate</w>
       <w>msec</w>
       <w>settimer</w>
       <w>stcan</w>
