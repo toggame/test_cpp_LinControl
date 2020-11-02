@@ -107,7 +107,7 @@ namespace global {
     STCAN_MSG present_EMS;
     static unsigned short IMMO_Status;
     static unsigned short Vehicle_Status;
-    static unsigned char DTC_info[100];
+    static unsigned char DTC_info[1000];
     static unsigned short DTC_rst = False;
     static unsigned short DTC_bytes;
 //    STCAN_MSG rstMsg_BCM;
@@ -1479,8 +1479,16 @@ void Utils_getDTC() {
 //    Trace("DTC_bytes=%d",DTC_bytes);
     mSID = 0x59;
     for (int i = 0; 4 * i + 6 < DTC_bytes; i++) {
-        DTC_date = (DTC_info[4 * i + 3] << 16) | (DTC_info[4 * i + 4] << 8) | DTC_info[4 * i + 5];
-        DTC_status = DTC_info[4 * i + 6];
+        switch (DTC_info[1]) {
+            case 0x0A:
+                DTC_date = (DTC_info[4 * i + 2] << 16) | (DTC_info[4 * i + 3] << 8) | DTC_info[4 * i + 4];
+                DTC_status = DTC_info[4 * i + 5];
+            default:
+                DTC_date = (DTC_info[4 * i + 3] << 16) | (DTC_info[4 * i + 4] << 8) | DTC_info[4 * i + 5];
+                DTC_status = DTC_info[4 * i + 6];
+        }
+//        DTC_date = (DTC_info[4 * i + 3] << 16) | (DTC_info[4 * i + 4] << 8) | DTC_info[4 * i + 5];
+//        DTC_status = DTC_info[4 * i + 6];
         Utils_getDTCInfo(DTC_date, DTC_str);
         Trace(">> DTC %d: %06X %02X %s", i + 1, DTC_date, DTC_status, DTC_str);
         Utils_getDTCStatus(DTC_status);
@@ -1675,7 +1683,9 @@ void Utils_checkMessage(STCAN_MSG &msg) {
         case 0x02:
             if (msgCount > 0) {
 //                msgCount++;
-                msgCount = (msg.data[0] & 0b1111) + 1;
+                if (msgCount > 0xf) {
+                    msgCount++;
+                } else { msgCount = (msg.data[0] & 0b1111) + 1; }
 //                Trace("流控响应完成：%d", msgCount);
 //                Trace("DTC_rst=%02X",DTC_rst);
                 if (DTC_rst == True) {
